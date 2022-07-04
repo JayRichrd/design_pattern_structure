@@ -1,0 +1,25 @@
+#命令设计模式
+@startuml
+class Receiver{
+    + action()
+}
+
+abstract class AbstractCommand{
+    + {abstract} execute()
+}
+
+class ConcreteCommand{
+    - receiver:Receiver
+}
+
+class Invoker
+
+class Client
+
+AbstractCommand <|-- ConcreteCommand : extends
+ConcreteCommand --> Receiver : Association
+Invoker --o  AbstractCommand: Aggregation
+Client ..> Invoker : Dependency
+Client ..> Receiver : Dependency
+
+@enduml

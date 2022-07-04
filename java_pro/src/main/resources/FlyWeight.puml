@@ -1,0 +1,17 @@
+#享元设计模式
+#运用共享技术，有效地支持细粒度对象
+@startuml
+
+abstract class FlyWeight
+class ConcreteFlyWeight
+class UnsharedFlyWeight
+class FlyWeightFactory
+class Client
+
+FlyWeightFactory o-- FlyWeight : Aggregation
+FlyWeight <|-- ConcreteFlyWeight : extends
+FlyWeight <|-- UnsharedFlyWeight : extends
+FlyWeightFactory <.. Client : Dependency
+FlyWeight <.. Client : Dependency
+
+@enduml

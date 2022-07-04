@@ -1,0 +1,17 @@
+#构建者设计模式
+@startuml
+class Product
+abstract class Builder{
+    + {abstract} void buildPart()
+    + {abstract} Product getResult()
+}
+class ConcreteBuilder{
+    - Product product
+}
+class Director
+
+Builder <|-- ConcreteBuilder : extends
+Director .. Builder : construct >
+ConcreteBuilder o-- Product : Aggregation
+
+@enduml

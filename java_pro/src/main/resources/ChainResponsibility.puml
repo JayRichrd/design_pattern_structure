@@ -1,0 +1,23 @@
+#职责链设计模式
+@startuml
+class Request{
+    int requestType
+    int requestCount
+    String requestContent
+}
+
+abstract class AbstractManager{
+    String name
+    setSuperior(manager:AbstractManager)
+    + {abstract} handleRequest(request:Request)
+}
+AbstractManager o-- AbstractManager : Aggregation
+AbstractManager ..> Request : Dependency
+
+class CommonManager
+class MajorManager
+class BossManager
+AbstractManager <|-- CommonManager : extends
+AbstractManager <|-- MajorManager : extends
+AbstractManager <|-- BossManager : extends
+@enduml

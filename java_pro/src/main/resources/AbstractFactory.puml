@@ -1,0 +1,30 @@
+@startuml
+interface AbstractProductA
+interface AbstractProductB
+interface AbstractFactory{
+    createProductA()
+    createProductB()
+}
+class Client
+
+AbstractProductA <|--ProductA1 : Implements
+AbstractProductA <|--ProductA2 : Implements
+
+AbstractProductB <|--ProductB1 : Implements
+AbstractProductB <|--ProductB2 : Implements
+
+AbstractFactory <|--ConcreteFactory1 : Implements
+AbstractFactory <|--ConcreteFactory2 : Implements
+
+ConcreteFactory1 ..> ProductA1 : Dependency
+ConcreteFactory1 ..> ProductB1 : Dependency
+
+ConcreteFactory2 ..> ProductA2 : Dependency
+ConcreteFactory2 ..> ProductB2 : Dependency
+
+Client --> AbstractProductA : Association
+Client --> AbstractProductB : Association
+Client --> AbstractFactory : Association
+
+
+@enduml

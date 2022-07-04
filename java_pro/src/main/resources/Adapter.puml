@@ -1,0 +1,28 @@
+@startuml
+abstract class Player{
+    # String name
+    + {abstract} void attack()
+    + {abstract} void defense()
+}
+
+class ForwardPlayer
+class GuardPlayer
+
+
+Player <|-- ForwardPlayer : extends
+Player <|-- GuardPlayer : extends
+
+class ForeignCenterPlayer{
+    - String name
+    + void jingong()
+    + void fangshou()
+}
+
+class TranslateAdapter{
+    - ForeignCenterPlayer centerPlayer
+}
+
+Player <|-- TranslateAdapter : extends
+TranslateAdapter --> ForeignCenterPlayer : Association
+
+@enduml

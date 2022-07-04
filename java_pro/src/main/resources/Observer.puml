@@ -1,0 +1,18 @@
+@startuml
+interface Subject{
+    void attach()
+    void detach()
+    void notify()
+}
+
+interface Observer{
+    void update()
+}
+
+class ConcreteSubject
+class ConcreteObserver
+
+Subject <|.. ConcreteSubject : implements
+Observer <|.. ConcreteObserver : implements
+Subject --> Observer : Association
+@enduml

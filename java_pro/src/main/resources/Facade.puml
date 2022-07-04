@@ -1,0 +1,22 @@
+# 外观设计模式
+@startuml
+class Client
+class Facade {
+    +void MethodA()
+    +void MethodB()
+}
+class SubSystemOne{
+    +void MethodOne()
+}
+class SubSystemTwo{
+    +void MethodTwo()
+}
+class SubSystemThree{
+    +void MethodThree()
+}
+
+Client --> Facade : Association
+Facade --> SubSystemOne: Association
+Facade --> SubSystemTwo: Association
+Facade --> SubSystemThree: Association
+@enduml

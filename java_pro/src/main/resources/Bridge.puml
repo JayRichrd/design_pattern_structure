@@ -1,0 +1,19 @@
+#桥接设计模式
+@startuml
+abstract class Abstraction{
+    + {abstract} void operation()
+}
+
+abstract class Implementor{
+    + {abstract} void operationImpl()
+}
+
+class RefindAbstraction
+class ConcretImplementorA
+class ConcretImplementorB
+
+Abstraction <|-- RefindAbstraction : extends
+Implementor <|-- ConcretImplementorA : extends
+Implementor <|-- ConcretImplementorB : extends
+Abstraction o-- Implementor : Aggregation
+@enduml

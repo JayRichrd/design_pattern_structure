@@ -1,0 +1,19 @@
+@startuml
+class Memento{
+    + String state
+}
+
+class Originator{
+    + String state
+    + Memento saveStateMemento()
+    + setStateMemento(Memento memento)
+}
+
+class CareTaker{
+    + void addMomento(Memento memento)
+    + Memento getMemento(int index)
+}
+
+Originator ..> Memento : Dependency
+CareTaker o-- Memento : Aggregation
+@enduml

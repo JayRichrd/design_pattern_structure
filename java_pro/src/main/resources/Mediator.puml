@@ -1,0 +1,22 @@
+#中介设计模式
+#用一个中介对象来封装一系列的对象交互，
+#中介对象使各对象不需要显示地相互引用，
+#从而使其耦合松散，
+#而且可以独立地改变他们的关系
+@startuml
+
+abstract class Mediator
+class ConcreteMediator
+
+abstract class Colleague
+class ConcretColleague1
+class ConcretColleague2
+
+Mediator o-- Colleague : Aggregation
+Mediator <|-- ConcreteMediator : extends
+Colleague <|-- ConcretColleague1 : extends
+Colleague <|-- ConcretColleague2 : extends
+ConcreteMediator <.. ConcretColleague1 : Dependency
+ConcreteMediator <.. ConcretColleague2 : Dependency
+
+@enduml

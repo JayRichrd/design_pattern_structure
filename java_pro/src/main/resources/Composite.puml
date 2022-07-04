@@ -1,0 +1,17 @@
+@startuml
+abstract class Component{
+    # String name
+    + {abstract} void add(Component component)
+    + {abstract} void remove(Component component)
+    + {abstract} void display(int depth)
+}
+
+class Leaf
+class Composite
+class CompositePattern
+
+Component <|-- Leaf : extends
+Component <|-- Composite : extends
+Component *-- Composite : composite
+CompositePattern ..> Component : Dependency
+@enduml
