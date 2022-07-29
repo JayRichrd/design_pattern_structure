@@ -3,4 +3,7 @@ project(cpp_pro)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(cpp_pro main.cpp)
+add_executable(cpp_pro
+        main.cpp
+        creator/singleton.h
+        )
