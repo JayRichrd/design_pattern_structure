@@ -16,8 +16,8 @@ public class DoubleCheckedLockSingleton {
     public static DoubleCheckedLockSingleton getInstance() {
         if (instance == null) {
             synchronized (DoubleCheckedLockSingleton.class) {
-                // 再次判断, 因为可能出现两个线程同时进入第一层if逻辑进入，当某个线程持有锁创建对象后
-                // 另一个线程也会马上持有锁并试图再次创建对象
+                // 再次判断, 因为可能出现两个线程同时进入第一层if逻辑，当某个线程创建对象释放锁后
+                // 另一个线程也会马上持有锁并试图再次创建对象，因此需要再次进行判空
                 if (instance == null) {
                     instance = new DoubleCheckedLockSingleton();
                 }
